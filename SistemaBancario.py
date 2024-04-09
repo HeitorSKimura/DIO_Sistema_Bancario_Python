@@ -9,7 +9,7 @@ menu = """
 
 saldo = 0
 limite = 500
-extrato = "Extrato Bancario\n"
+extrato = "Extrato Bancário:\n"
 numero_saques = 0
 LIMITE_SAQUES = 3
 
@@ -17,17 +17,21 @@ while True:
     opcao = input(menu.lower())
 
     if(opcao == "d"):
-        valor = float(input("Informe o valor que deseja depositar: "))
-        while(valor < 0):
-            print("Valor não permitido, tente novamente")
-            valor = float(input("Informe o valor que deseja depositar: "))
-        saldo += valor
-        extrato += f"{saldo}"
-        print("Depositar")
+        print("Depositar:")
+        while(True):
+            valor = float(input("Informe o valor que deseja Depositar: "))
+            if(valor < 0):
+                print("Valor não aceitavel, tente novamente.")
+                continue
+            else:
+                saldo += valor
+                extrato += f"Deposito: R$ {valor}\n"
+                break
     elif(opcao == "s"):
-        print("Sacar")
+        print("Sacar:")
     elif(opcao == "e"):
-        print("Extrato")
+        print("Extrato:")
+
     elif(opcao == "q"):
         print("Sistema Encerrado")
         break
