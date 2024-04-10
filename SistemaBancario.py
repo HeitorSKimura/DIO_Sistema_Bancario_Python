@@ -1,3 +1,8 @@
+import math
+
+def truncateNum(number, dec_plc):
+    return math.floor(number * 10 ** dec_plc) / 10 ** dec_plc
+
 menu = """
 
 [d] Depositar
@@ -9,29 +14,34 @@ menu = """
 
 saldo = 0
 limite = 500
-extrato = "Extrato Bancário:\n"
+extrato = ""
 numero_saques = 0
 LIMITE_SAQUES = 3
 
 while True:
+
     opcao = input(menu.lower())
 
     if(opcao == "d"):
-        print("Depositar:")
+        print(" Depositar ".center(26,"-"))
         while(True):
             valor = float(input("Informe o valor que deseja Depositar: "))
             if(valor < 0):
-                print("Valor não aceitavel, tente novamente.")
+                print("\nValor não aceitavel, tente novamente.\n")
                 continue
             else:
                 saldo += valor
-                extrato += f"Deposito: R$ {valor}\n"
+                extrato += f"Deposito: R$ {truncateNum(valor,2)}\n"
                 break
     elif(opcao == "s"):
-        print("Sacar:")
+        print(" Sacar ".center(26,"-"))
+        while(True):
+            if(numero_saques <= LIMITE_SAQUES):
+                valor = float(input("Informe o valor que deseja Sacar: "))
+                if()
     elif(opcao == "e"):
-        print("Extrato:")
-
+        print(" Extrato ".center(26,"#"))
+        print(extrato)
     elif(opcao == "q"):
         print("Sistema Encerrado")
         break
