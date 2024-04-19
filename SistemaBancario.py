@@ -3,6 +3,9 @@ import math
 def truncateNum(number, dec_plc):
     return math.floor(number * 10 ** dec_plc) / 10 ** dec_plc
 
+def depositar():
+    return
+
 menu = """
 
 [d] Depositar
